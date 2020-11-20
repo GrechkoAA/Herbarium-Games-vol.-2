@@ -1,7 +1,7 @@
 ﻿public class MazeCell
 {
-    public readonly int X;
-    public readonly int Y;
+    public int X;
+    public int Y;
 
     public bool IsFull;
 

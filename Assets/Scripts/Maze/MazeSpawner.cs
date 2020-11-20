@@ -2,8 +2,7 @@
 
 public class MazeSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _wallsTemplate;
-    [SerializeField, Min(0)] private int _wallId;
+    [SerializeField] private CellPool _wallPool;
     [SerializeField, Min(3)] private int _width;
     [SerializeField] private int _height;
     [SerializeField, Range(0, 100)] private byte _mazeFillPercentage;
@@ -32,8 +31,7 @@ public class MazeSpawner : MonoBehaviour
             {
                 if (newMaze[x, y].IsFull)
                 {
-                    GameObject newWall = Instantiate(_wallsTemplate[_wallId], GetPosition(newMaze[x, y]), Quaternion.identity);
-                    newWall.transform.SetParent(transform);
+                    _wallPool.Dequeue().position = GetPosition(newMaze[x, y]);
                 }
             }
         }
@@ -44,11 +42,8 @@ public class MazeSpawner : MonoBehaviour
         return new Vector3(mazeCell.X, 0, mazeCell.Y);
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Spawn(_generationMaze.GenerationLine(1));
-        }
+        _wallPool.LineAssembled += () => Spawn(_generationMaze.GenerationLine(1));
     }
 }
