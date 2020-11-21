@@ -9,8 +9,12 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
-        Move();
         Turn();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
 
     private void Turn()
@@ -21,5 +25,10 @@ public class CharacterMovement : MonoBehaviour
     private void Move()
     {
         _characterController.Move(transform.forward * Time.deltaTime * _speed);
+    }
+
+    private void OnSetSpeedMove(float speed)
+    {
+        _speed += speed;
     }
 }

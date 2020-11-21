@@ -129,37 +129,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1198144448, guid: 186e8381a3f81344aa78df057ee16554, type: 3}
-      propertyPath: _characterController
+    - target: {fileID: 1204507300, guid: 186e8381a3f81344aa78df057ee16554, type: 3}
+      propertyPath: _cellPool
       value: 
-      objectReference: {fileID: 885605594}
-    - target: {fileID: 1198144448, guid: 186e8381a3f81344aa78df057ee16554, type: 3}
-      propertyPath: _speed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1198144448, guid: 186e8381a3f81344aa78df057ee16554, type: 3}
-      propertyPath: _rotationSpeed
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 615320201917626158, guid: 186e8381a3f81344aa78df057ee16554,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: d8ab49d5f6b55d14ea56146068c812ba, type: 2}
-    - target: {fileID: 615320201917626158, guid: 186e8381a3f81344aa78df057ee16554,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
+      objectReference: {fileID: 1019245268}
+    - target: {fileID: 1204507300, guid: 186e8381a3f81344aa78df057ee16554, type: 3}
+      propertyPath: _delayTime
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5790314585590966343, guid: 186e8381a3f81344aa78df057ee16554,
         type: 3}
       propertyPath: m_Name
       value: Boy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6559121674151169792, guid: 186e8381a3f81344aa78df057ee16554,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.68
       objectReference: {fileID: 0}
     - target: {fileID: 7349889671574280788, guid: 186e8381a3f81344aa78df057ee16554,
         type: 3}
@@ -310,12 +291,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 150, y: 0, z: 0}
---- !u!143 &885605594 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 6559121674151169792, guid: 186e8381a3f81344aa78df057ee16554,
-    type: 3}
-  m_PrefabInstance: {fileID: 318729360}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
