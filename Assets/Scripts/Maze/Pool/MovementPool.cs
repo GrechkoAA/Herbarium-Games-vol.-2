@@ -3,12 +3,11 @@
 public class MovementPool : MonoBehaviour
 {
     [SerializeField] private Transform _camera;
-
-    private float offsetPosition;
+    [SerializeField] float offsetPosition;
 
     private void Start()
     {
-        offsetPosition = _camera.position.z;
+        offsetPosition += _camera.position.z;
     }
 
     private void Update()
