@@ -4,7 +4,7 @@ public class CellPool : MonoBehaviour
 {
     [SerializeField] private Transform _walls;
     [SerializeField] private Transform _parentWall;
-    
+
     private float _currnetLine;
     private System.Collections.Generic.Queue<Transform> _wallsQueue = new System.Collections.Generic.Queue<Transform>();
 
@@ -25,6 +25,12 @@ public class CellPool : MonoBehaviour
         return _wallsQueue.Dequeue();
     }
 
+    public void Enqueue(Transform cell)
+    {
+        cell.position = Vector3.zero;
+        _wallsQueue.Enqueue(cell);
+    }
+
     private void FillQueue(int number)
     {
         for (int i = 0; i < number; i++)
@@ -36,13 +42,13 @@ public class CellPool : MonoBehaviour
         }
     }
 
-    private void Enqueue(Collider other)
+    private void EnqueueLine(Transform wall)
     {
-        _wallsQueue.Enqueue(other.transform);
+        _wallsQueue.Enqueue(wall);
 
-        if (IsNextLine(other.transform.position.z))
+        if (IsNextLine(wall.position.z))
         {
-            _currnetLine = other.transform.position.z;
+            _currnetLine = wall.position.z;
             LineAssembled?.Invoke();
         }
     }
@@ -54,6 +60,9 @@ public class CellPool : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Enqueue(other);
+        if (other.TryGetComponent(out Wall wall))
+        {
+            EnqueueLine(wall.transform);
+        }
     }
 }
