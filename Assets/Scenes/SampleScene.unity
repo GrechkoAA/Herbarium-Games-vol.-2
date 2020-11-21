@@ -129,6 +129,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1198144448, guid: 186e8381a3f81344aa78df057ee16554, type: 3}
+      propertyPath: _forwardSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198144448, guid: 186e8381a3f81344aa78df057ee16554, type: 3}
+      propertyPath: _globalAcceleration
+      value: 
+      objectReference: {fileID: 966674359}
     - target: {fileID: 1204507300, guid: 186e8381a3f81344aa78df057ee16554, type: 3}
       propertyPath: _cellPool
       value: 
@@ -387,7 +395,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870a96579ef1da84b8e0a0260a257091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _globalAcceleration: {fileID: 966674359}
   _speed: 1
+--- !u!1 &966674358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 966674360}
+  - component: {fileID: 966674359}
+  m_Layer: 0
+  m_Name: GamePlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &966674359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966674358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84eb691299bf6c74cba112738bea32b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _secondsUntilNextAcceleration: 2.5
+  _stepAcceleration: 0.1
+--- !u!4 &966674360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966674358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.9799995, y: -0.0074107647, z: -0.09708649}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &989707552
 GameObject:
   m_ObjectHideFlags: 0
