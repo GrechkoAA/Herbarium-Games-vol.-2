@@ -10,6 +10,7 @@ public class CameraMovement : MonoBehaviour
         transform.position += Vector3.forward * _speed * Time.deltaTime;
     }
 
+
     private void OnEnable()
     {
         _globalAcceleration.StepAccelerated += (stepAcceleration) => { _speed += stepAcceleration; };
