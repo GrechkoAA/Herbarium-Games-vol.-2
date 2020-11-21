@@ -37,4 +37,15 @@ public class CharacterMovement : MonoBehaviour
     {
         _globalAcceleration.StepAccelerated += (stepAcceleration) => OnSetSpeedMove(stepAcceleration);
     }
+
+    private void OnBecameVisible()
+    {
+        print(2);
+
+    }
+
+    private void OnBecameInvisible()
+    {
+        print(1);
+    }
 }

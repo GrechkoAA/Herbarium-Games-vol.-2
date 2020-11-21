@@ -145,6 +145,11 @@ PrefabInstance:
       propertyPath: _delayTime
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 470499859450683993, guid: 186e8381a3f81344aa78df057ee16554,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5790314585590966343, guid: 186e8381a3f81344aa78df057ee16554,
         type: 3}
       propertyPath: m_Name
@@ -350,7 +355,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 30
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -820,6 +825,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430306170}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1523623782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 470499859450683993, guid: 186e8381a3f81344aa78df057ee16554,
+    type: 3}
+  m_PrefabInstance: {fileID: 318729360}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1523623785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523623782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3d8b04e57e03c42800f6d1ff769923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameOvered:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2127018545
 GameObject:
   m_ObjectHideFlags: 0
