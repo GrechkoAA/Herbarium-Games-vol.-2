@@ -3,8 +3,9 @@
 [RequireComponent(typeof(CharacterController))]
 public class CharacterMovement : MonoBehaviour
 {
+    [SerializeField] private GlobalAcceleration _globalAcceleration;
     [SerializeField] private CharacterController _characterController;
-    [SerializeField] private float _speed;
+    [SerializeField] private float _forwardSpeed;
     [SerializeField] private float _rotationSpeed;
 
     private void Update()
@@ -24,11 +25,16 @@ public class CharacterMovement : MonoBehaviour
 
     private void Move()
     {
-        _characterController.Move(transform.forward * Time.deltaTime * _speed);
+        _characterController.Move(transform.forward *_forwardSpeed * Time.deltaTime);
     }
 
     private void OnSetSpeedMove(float speed)
     {
-        _speed += speed;
+        _forwardSpeed += speed;
+    }
+
+    private void OnEnable()
+    {
+        _globalAcceleration.StepAccelerated += (stepAcceleration) => OnSetSpeedMove(stepAcceleration);
     }
 }
