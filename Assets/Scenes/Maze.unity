@@ -1313,10 +1313,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wallPool: {fileID: 1019245268}
   _width: 7
-  _height: 25
-  _mazeFillPercentage: 78
+  _height: 14
+  _mazeFillPercentage: 69
   _windingPathPercentage: 20
-  _blockPathPercentage: 3.6
+  _blockPathPercentage: 2.1
 --- !u!4 &989707554
 Transform:
   m_ObjectHideFlags: 0

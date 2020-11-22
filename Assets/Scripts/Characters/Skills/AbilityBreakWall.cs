@@ -74,6 +74,6 @@ public class AbilityBreakWall : MonoBehaviour
 
     private void OnEnable()
     {
-        _characterInput.RushedForward += () => _canLeapForward = true;
+        _characterInput.RushedForward += () => _canLeapForward = CurrentTime > _delayTime ? true : false;
     }
 }
