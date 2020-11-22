@@ -3,17 +3,18 @@
 public class MazeSpawner : MonoBehaviour
 {
     [SerializeField] private CellPool _wallPool;
-    [SerializeField, Min(3)] private int _width;
-    [SerializeField] private int _height;
     [SerializeField, Range(0, 100)] private byte _mazeFillPercentage;
     [SerializeField, Range(0, 100)] private byte _windingPathPercentage;
     [SerializeField, Range(0, 100)] private float _blockPathPercentage;
 
     private MazeGeneration _generationMaze;
 
+    private int _width = 7;
+    private int _lines = 15;
+
     private void Awake()
     {
-        _generationMaze = new MazeGeneration(_width, _height, new RandomAlgorithm(_width, _mazeFillPercentage, _windingPathPercentage, _blockPathPercentage));
+        _generationMaze = new MazeGeneration(_width, _lines, new RandomAlgorithm(_width, _mazeFillPercentage, _windingPathPercentage, _blockPathPercentage));
     }
 
     private void Start()
