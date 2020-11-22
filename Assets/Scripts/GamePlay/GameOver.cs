@@ -6,8 +6,6 @@ public class GameOver : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        Time.timeScale = 0;
-
         _gameOvered?.Invoke();
     }
 }
