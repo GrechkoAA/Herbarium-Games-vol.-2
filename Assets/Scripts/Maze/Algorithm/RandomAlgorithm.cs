@@ -35,28 +35,23 @@ public class RandomAlgorithm : IAlgorithmGeneratable
 
     public void GenerationPath(MazeCell[,] maze)
     {
-        bool isNextLine = true;
-
         for (int x = 0; x < maze.GetLength(0); x++)
         {
             for (int y = 0; y < maze.GetLength(1); y++)
             {
-                if ((isNextLine == true) && (path.x == maze[x, y].X))
+                if ((IsPathBlocked() == true) && (path.x == maze[x, y].X))
                 {
-                    isNextLine = false;
                     maze[x, y].IsFull = false;
 
                     MakeStep(maze, x, y);
                 }
             }
-
-            isNextLine = IsPathBlocked();
         }
     }
 
     private bool IsPathBlocked()
     {
-       return Random.Range(0, 100) > _blockPathPercentage;
+        return Random.Range(0, 100) > _blockPathPercentage;
     }
 
     private void MakeStep(MazeCell[,] maze, int x, int y)
@@ -66,7 +61,7 @@ public class RandomAlgorithm : IAlgorithmGeneratable
 
         if (_isLeftCorner == false)
         {
-            isStepLeft = Random.Range(0, 100) <= _windingPathPercentage;
+            isStepLeft = Random.Range(0, 100) < _windingPathPercentage;
 
             if ((isStepLeft) && (maze[x, y].X > 0))
             {
@@ -78,7 +73,7 @@ public class RandomAlgorithm : IAlgorithmGeneratable
 
         if (_isRightCorner == false)
         {
-            isStepRight = Random.Range(0, 100) <= _windingPathPercentage;
+            isStepRight = Random.Range(0, 100) < _windingPathPercentage;
 
             if ((isStepRight) && (maze[x, y].X < _widht - 1))
             {
