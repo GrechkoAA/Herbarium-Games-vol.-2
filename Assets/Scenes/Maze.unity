@@ -263,13 +263,14 @@ GameObject:
   - component: {fileID: 252824951}
   - component: {fileID: 252824953}
   - component: {fileID: 252824952}
+  - component: {fileID: 252824954}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &252824951
 RectTransform:
   m_ObjectHideFlags: 0
@@ -330,6 +331,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252824950}
   m_CullTransparentMesh: 0
+--- !u!114 &252824954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252824950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b849f8a82d9b344ea765ba89357436b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _time: {fileID: 1223019491}
 --- !u!1001 &318729360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -928,6 +942,7 @@ GameObject:
   - component: {fileID: 799278859}
   - component: {fileID: 799278858}
   - component: {fileID: 799278860}
+  - component: {fileID: 799278861}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -1004,8 +1019,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c42ed3b08764e43adfe74a08d3e099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreModel: {fileID: 966674361}
-  _text: {fileID: 625781346}
+  _scoreModel: {fileID: 799278861}
+  _score: {fileID: 625781346}
+--- !u!114 &799278861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799278856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a9d6963af8b684dad5f1dc17bceed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _encouragementInSecond: 0.3
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,7 +1142,6 @@ GameObject:
   m_Component:
   - component: {fileID: 966674360}
   - component: {fileID: 966674359}
-  - component: {fileID: 966674361}
   - component: {fileID: 966674362}
   m_Layer: 0
   m_Name: GamePlay
@@ -1151,19 +1178,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &966674361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966674358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34a9d6963af8b684dad5f1dc17bceed7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _encouragementInSecond: 0.3
 --- !u!114 &966674362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2287,6 +2301,17 @@ MonoBehaviour:
       - m_Target: {fileID: 252824950}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 252824954}
+        m_MethodName: SetGameTime
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
