@@ -9,12 +9,15 @@ public class AbilityBreakWall : MonoBehaviour
     [SerializeField] private Collider _characterCollider;
     [SerializeField, Range(0, 30)] private float _delayTime;
 
-    private float _currentTime = 0;
     private bool _canLeapForward;
+
+    public float CurrentTime { get; private set; }
+
+    public float DelayTime => _delayTime;
 
     private void Start()
     {
-        _currentTime = _delayTime;
+        CurrentTime = _delayTime;
     }
 
     private void Update()
@@ -27,9 +30,9 @@ public class AbilityBreakWall : MonoBehaviour
 
     private bool IsRechargeComplete()
     {
-        _currentTime += Time.deltaTime;
+        CurrentTime += Time.deltaTime;
 
-        if (_currentTime >= _delayTime)
+        if (CurrentTime >= _delayTime)
         {
             return true;
         }
@@ -40,7 +43,7 @@ public class AbilityBreakWall : MonoBehaviour
     private void Use()
     {
         _canLeapForward = false;
-        _currentTime = 0;
+        CurrentTime = 0;
 
         Enable(true);
     }
