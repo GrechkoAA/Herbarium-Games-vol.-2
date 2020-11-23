@@ -14,7 +14,7 @@ public class CharacterInput : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (IsHitInterval() == true)
+        if (IsDoubleClickInterval() == true)
         {
             DoubleClick();
 
@@ -34,7 +34,7 @@ public class CharacterInput : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         _previousClickTime = Time.time;
     }
 
-    private bool IsHitInterval()
+    private bool IsDoubleClickInterval()
     {
         return _clickCount++ > 1 && _previousClickTime + _doubleClickInterval > Time.time;
     }
