@@ -2,7 +2,7 @@
 
 public class RandomAlgorithm : IAlgorithmGeneratable
 {
-    private Vector2 path;
+    private Vector2 _path;
     private int _widht;
 
     private byte _mazeFillPercentage;
@@ -15,20 +15,20 @@ public class RandomAlgorithm : IAlgorithmGeneratable
     public RandomAlgorithm(int width, byte mazeFillPercentage, byte windingPathPercentage, float blockPathPercentage)
     {
         _widht = width;
-        path = new Vector2(_widht / 2, 0);
+        _path = new Vector2(_widht / 2, 0);
 
         _mazeFillPercentage = mazeFillPercentage;
         _windingPathPercentage = windingPathPercentage;
         _blockPathPercentage = blockPathPercentage;
     }
 
-    public void FillInMaze(MazeCell[,] maze)
+    public void FillMaze(MazeCell[,] maze)
     {
         for (int x = 0; x < maze.GetLength(0); x++)
         {
             for (int y = 0; y < maze.GetLength(1); y++)
             {
-                maze[x, y].IsFull = Random.Range(0, 100) <= _mazeFillPercentage;
+                maze[x, y].IsFull = Random.Range(0, 100) < _mazeFillPercentage;
             }
         }
     }
@@ -39,7 +39,7 @@ public class RandomAlgorithm : IAlgorithmGeneratable
         {
             for (int y = 0; y < maze.GetLength(1); y++)
             {
-                if ((IsPathBlocked() == true) && (path.x == maze[x, y].X))
+                if ((IsPathBlocked() == true) && (_path.x == maze[x, y].X))
                 {
                     maze[x, y].IsFull = false;
 
@@ -65,7 +65,7 @@ public class RandomAlgorithm : IAlgorithmGeneratable
 
             if ((isStepLeft) && (maze[x, y].X > 0))
             {
-                path.x--;
+                _path.x--;
                 maze[x, y - 1].IsFull = false;
                 _isLeftCorner = maze[x, y].X == 1 ? true : false;
             }
@@ -77,13 +77,13 @@ public class RandomAlgorithm : IAlgorithmGeneratable
 
             if ((isStepRight) && (maze[x, y].X < _widht - 1))
             {
-                path.x++;
+                _path.x++;
                 maze[x, y + 1].IsFull = false;
                 _isRightCorner = maze[x, y].X == _widht - 2 ? true : false;
             }
         }
 
-        if (path.x == _widht / 2)
+        if (_path.x == _widht / 2)
         {
             _isLeftCorner = false;
             _isRightCorner = false;

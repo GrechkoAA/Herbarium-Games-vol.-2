@@ -22,7 +22,7 @@
     {
         var maze = GetMaze(line);
 
-        _generationAlgorithm.FillInMaze(maze);
+        _generationAlgorithm.FillMaze(maze);
         _generationAlgorithm.GenerationPath(maze);
 
         return maze;

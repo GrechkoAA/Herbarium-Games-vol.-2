@@ -1,6 +1,6 @@
 ﻿public interface IAlgorithmGeneratable
 {
-    void FillInMaze(MazeCell[,] maze);
+    void FillMaze(MazeCell[,] maze);
 
     void GenerationPath(MazeCell[,] maze);
 }
