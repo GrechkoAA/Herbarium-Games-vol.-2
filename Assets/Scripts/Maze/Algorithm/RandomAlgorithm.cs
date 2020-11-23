@@ -22,7 +22,7 @@ public class RandomAlgorithm : IAlgorithmGeneratable
         _blockPathPercentage = blockPathPercentage;
     }
 
-    public void FillInMaze(MazeCell[,] maze)
+    public void FillMaze(MazeCell[,] maze)
     {
         for (int x = 0; x < maze.GetLength(0); x++)
         {
