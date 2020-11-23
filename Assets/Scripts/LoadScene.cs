@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-
-public class LoadScene : MonoBehaviour
+﻿public class LoadScene : UnityEngine.MonoBehaviour
 {
-    public void OnLoadScene(string name)
+    public void OnLoad(string name)
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(name);
     }
