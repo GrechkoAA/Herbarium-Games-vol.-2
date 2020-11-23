@@ -361,7 +361,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 966674362}
-        m_MethodName: OnLoadScene
+        m_MethodName: OnLoad
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -499,7 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b849f8a82d9b344ea765ba89357436b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _time: {fileID: 1223019491}
+  _timer: {fileID: 1223019491}
 --- !u!1001 &273028993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1044,7 +1044,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 966674362}
-        m_MethodName: OnLoadScene
+        m_MethodName: OnLoad
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1771,7 +1771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a9d6963af8b684dad5f1dc17bceed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _encouragementInSecond: 0.3
+  _point: 0.3
 --- !u!1001 &815206699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2047,7 +2047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _globalAcceleration: {fileID: 966674359}
   _speed: 1
-  _componentCamera: {fileID: 963194227}
+  _camera: {fileID: 963194227}
   _defaultResolution: {x: 1080, y: 2340}
 --- !u!1 &966674358
 GameObject:
@@ -4553,6 +4553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17575f0e1f34a514aae1928209edfc46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doubleClickInterval: 0.2
 --- !u!114 &1539318248
 MonoBehaviour:
   m_ObjectHideFlags: 0

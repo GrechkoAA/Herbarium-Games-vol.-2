@@ -2,10 +2,11 @@
 
 public class ScoreModel : MonoBehaviour
 {
-    [SerializeField] private float _encouragementInSecond;
+    [SerializeField] private float _point;
 
     private float _currentTime;
     private float _currentPoints;
+    private float _maxSeconds = 1;
 
     public event System.Action<float> Encouraged;
 
@@ -18,9 +19,9 @@ public class ScoreModel : MonoBehaviour
     {
         _currentTime += Time.deltaTime;
 
-        if (_currentTime >= 1)
+        if (_currentTime >= _maxSeconds)
         {
-            _currentPoints += _encouragementInSecond;
+            _currentPoints += _point;
 
             Encouraged?.Invoke(_currentPoints);
 

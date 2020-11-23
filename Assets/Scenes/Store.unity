@@ -1096,7 +1096,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 782496479}
-        m_MethodName: OnLoadScene
+        m_MethodName: OnLoad
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
