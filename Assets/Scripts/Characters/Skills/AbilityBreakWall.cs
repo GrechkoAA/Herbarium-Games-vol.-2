@@ -45,31 +45,31 @@ public class AbilityBreakWall : MonoBehaviour
         _canLeapForward = false;
         CurrentTime = 0;
 
-        Enable(true);
+        ToSwitch(true);
     }
 
     private void OnDisableAbility()
     {
-        Enable(false);
+        ToSwitch(false);
     }
 
-    private void Enable(bool enable)
+    private void ToSwitch(bool enable)
     {
         _characterMovementAnimator.SetBool("WallBreak", enable);
         _characterCollider.enabled = enable;
+    }
+
+    private void DestroyWall(Transform wall)
+    {
+        _cellPool.Enqueue(wall);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Wall wall))
         {
-            DestroyWall(wall);
+            DestroyWall(wall.transform);
         }
-    }
-
-    private void DestroyWall(Wall wall)
-    {
-        _cellPool.Enqueue(wall.transform);
     }
 
     private void OnEnable()
