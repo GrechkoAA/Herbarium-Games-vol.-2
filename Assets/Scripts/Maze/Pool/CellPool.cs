@@ -2,11 +2,11 @@
 
 public class CellPool : MonoBehaviour
 {
-    [SerializeField] private Transform _walls;
+    [SerializeField] private Transform _wall;
     [SerializeField] private Transform _parentWall;
 
     private float _currnetLine;
-    private System.Collections.Generic.Queue<Transform> _wallsQueue = new System.Collections.Generic.Queue<Transform>();
+    private System.Collections.Generic.Queue<Transform> _list = new System.Collections.Generic.Queue<Transform>();
 
     public event System.Action LineAssembled;
 
@@ -17,39 +17,28 @@ public class CellPool : MonoBehaviour
 
     public Transform Dequeue()
     {
-        if (_wallsQueue.Count == 0)
+        if (_list.Count == 0)
         {
             FillQueue(5);
         }
 
-        return _wallsQueue.Dequeue();
+        return _list.Dequeue();
     }
 
     public void Enqueue(Transform cell)
     {
         cell.position = Vector3.zero;
-        _wallsQueue.Enqueue(cell);
+        _list.Enqueue(cell);
     }
 
     private void FillQueue(int number)
     {
         for (int i = 0; i < number; i++)
         {
-            Transform newWall = Instantiate(_walls);
+            Transform newWall = Instantiate(_wall);
             newWall.SetParent(_parentWall);
 
-            _wallsQueue.Enqueue(newWall);
-        }
-    }
-
-    private void EnqueueLine(Transform wall)
-    {
-        _wallsQueue.Enqueue(wall);
-
-        if (IsNextLine(wall.position.z))
-        {
-            _currnetLine = wall.position.z;
-            LineAssembled?.Invoke();
+            _list.Enqueue(newWall);
         }
     }
 
@@ -62,7 +51,13 @@ public class CellPool : MonoBehaviour
     {
         if (other.TryGetComponent(out Wall wall))
         {
-            EnqueueLine(wall.transform);
+            _list.Enqueue(wall.transform);
+
+            if (IsNextLine(wall.transform.position.z))
+            {
+                _currnetLine = wall.transform.position.z;
+                LineAssembled?.Invoke();
+            }
         }
     }
 }
