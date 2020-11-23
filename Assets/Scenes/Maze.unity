@@ -2047,7 +2047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _globalAcceleration: {fileID: 966674359}
   _speed: 1
-  _componentCamera: {fileID: 963194227}
+  _camera: {fileID: 963194227}
   _defaultResolution: {x: 1080, y: 2340}
 --- !u!1 &966674358
 GameObject:
