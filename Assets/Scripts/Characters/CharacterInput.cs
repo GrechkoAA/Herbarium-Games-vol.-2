@@ -1,61 +1,54 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class CharacterInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    public event Action<bool> TurnedLeft;
-    public event Action<bool> TurnedRight;
-    public event Action RushedForward;
+    [SerializeField] private float _doubleClickInterval;
 
-    private float _interval = 0.2f;
-    private float _doubleClickTime;
+    private float _previousClickTime;
     private int _clickCount;
+
+    public event System.Action<bool> TurnedLeft;
+    public event System.Action<bool> TurnedRight;
+    public event System.Action RushedForward;
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        DoubleClick();
+        if (IsHitInterval() == true)
+        {
+            DoubleClick();
+
+            return;
+        }
 
         if (eventData.position.x > Screen.width / 2)
         {
             TurnedLeft?.Invoke(true);
         }
 
-        if(eventData.position.x < Screen.width / 2)
+        if (eventData.position.x < Screen.width / 2)
         {
             TurnedRight?.Invoke(true);
         }
+
+        _previousClickTime = Time.time;
+    }
+
+    private bool IsHitInterval()
+    {
+        return _clickCount++ > 1 && _previousClickTime + _doubleClickInterval > Time.time;
     }
 
     private void DoubleClick()
     {
-        _clickCount++;
+        RushedForward?.Invoke();
 
-        if (HitInterval() == true)
-        {
-            RushedForward?.Invoke();
-
-            _clickCount = 0;
-
-            return;
-        }
-
-        _doubleClickTime = Time.time;
-
-        if (_clickCount > 1)
-        {
-            _clickCount = 0;
-        }
+        _clickCount = 0;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         TurnedLeft?.Invoke(false);
         TurnedRight?.Invoke(false);
-    }
-
-    private bool HitInterval()
-    {
-        return _clickCount > 1 && _doubleClickTime + _interval > Time.time;
-    }
+    }  
 }
