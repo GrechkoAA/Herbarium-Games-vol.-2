@@ -2343,7 +2343,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf8bea90c029ee4ca2698f8150e3353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wallPool: {fileID: 1019245268}
+  _pool: {fileID: 1019245268}
+  _maxLines: 15
   _mazeFillPercentage: 66
   _windingPathPercentage: 20
   _blockPathPercentage: 1.6
@@ -2499,7 +2500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63309e6e75a07c44983a6bdd77d98099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wall: {fileID: 5337882777028273253, guid: 9d51a219d3ad74340bfa6114d309babf, type: 3}
+  _cellTemplate: {fileID: 5337882777028273253, guid: 9d51a219d3ad74340bfa6114d309babf,
+    type: 3}
   _parentWall: {fileID: 989707554}
 --- !u!65 &1019245269
 BoxCollider:

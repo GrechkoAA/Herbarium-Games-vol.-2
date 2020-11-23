@@ -2,19 +2,19 @@
 
 public class MazeSpawner : MonoBehaviour
 {
-    [SerializeField] private CellPool _wallPool;
+    [SerializeField] private CellPool _pool;
+    [SerializeField, Min(0)] private int _maxLines;
     [SerializeField, Range(0, 100)] private byte _mazeFillPercentage;
     [SerializeField, Range(0, 100)] private byte _windingPathPercentage;
     [SerializeField, Range(0, 100)] private float _blockPathPercentage;
 
     private MazeGeneration _generationMaze;
 
-    private int _width = 7;
-    private int _lines = 15;
-
     private void Awake()
     {
-        _generationMaze = new MazeGeneration(_width, _lines, new RandomAlgorithm(_width, _mazeFillPercentage, _windingPathPercentage, _blockPathPercentage));
+        var _width = 7;
+
+        _generationMaze = new MazeGeneration(_width, _maxLines, new RandomAlgorithm(_width, _mazeFillPercentage, _windingPathPercentage, _blockPathPercentage));
     }
 
     private void Start()
@@ -32,7 +32,7 @@ public class MazeSpawner : MonoBehaviour
             {
                 if (newMaze[x, y].IsFull)
                 {
-                    _wallPool.Dequeue().position = GetPosition(newMaze[x, y]);
+                    _pool.Dequeue().position = GetPosition(newMaze[x, y]);
                 }
             }
         }
@@ -45,6 +45,6 @@ public class MazeSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        _wallPool.LineAssembled += () => Spawn(_generationMaze.GenerationLine(1));
+        _pool.LineAssembled += () => Spawn(_generationMaze.GenerationLine(1));
     }
 }

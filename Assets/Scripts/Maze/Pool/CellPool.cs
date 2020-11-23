@@ -2,7 +2,7 @@
 
 public class CellPool : MonoBehaviour
 {
-    [SerializeField] private Transform _wall;
+    [SerializeField] private Transform _cellTemplate;
     [SerializeField] private Transform _parentWall;
 
     private float _currnetLine;
@@ -35,7 +35,7 @@ public class CellPool : MonoBehaviour
     {
         for (int i = 0; i < number; i++)
         {
-            Transform newWall = Instantiate(_wall);
+            Transform newWall = Instantiate(_cellTemplate);
             newWall.SetParent(_parentWall);
 
             _list.Enqueue(newWall);
