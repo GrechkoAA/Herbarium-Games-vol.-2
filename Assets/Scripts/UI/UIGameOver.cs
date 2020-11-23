@@ -2,10 +2,10 @@
 
 public class UIGameOver : MonoBehaviour
 {
-    [SerializeField] private TMPro.TMP_Text _time;
+    [SerializeField] private TMPro.TMP_Text _timer;
 
     public void SetGameTime()
     {
-        _time.text = $"{Time.timeSinceLevelLoad.ToString("F0")} second";
+        _timer.text = $"{Time.timeSinceLevelLoad.ToString("F0")} second";
     }
 }
