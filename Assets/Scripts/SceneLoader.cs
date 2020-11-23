@@ -1,4 +1,4 @@
-﻿public class LoadScene : UnityEngine.MonoBehaviour
+﻿public class SceneLoader : UnityEngine.MonoBehaviour
 {
     public void OnLoad(string name)
     {
