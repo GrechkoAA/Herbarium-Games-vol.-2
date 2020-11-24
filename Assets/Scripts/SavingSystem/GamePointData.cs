@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewData", menuName = "Create Data", order = 51)]
-public class GameData : ScriptableObject
+[CreateAssetMenu(fileName = "NewGamePointData", menuName = "Create Data/New Game Point Data", order = 51)]
+public class GamePointData : Data
 {
     [SerializeField] private float _points;
 

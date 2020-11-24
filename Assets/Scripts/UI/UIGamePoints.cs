@@ -3,7 +3,7 @@
 public class UIGamePoints : MonoBehaviour
 {
     [SerializeField] private TMPro.TMP_Text _score;
-    [SerializeField] private GameData _gameData;
+    [SerializeField] private GamePointData _gameData;
 
     private void Start()
     {
