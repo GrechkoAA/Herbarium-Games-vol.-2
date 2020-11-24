@@ -16,7 +16,7 @@ public class SavingSystem : MonoBehaviour
         JsonUtility.FromJsonOverwrite(PlayerPrefs.GetString(key), _scoreData);
     }
 
-    private void Save()
+    public void OnSave()
     {
         if (key == "")
         {
@@ -29,8 +29,8 @@ public class SavingSystem : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private void OnApplicationQuit()
+    private void OnApplicationPause(bool pause)
     {
-        Save();
+        OnSave();
     }
 }
