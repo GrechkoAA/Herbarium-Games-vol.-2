@@ -2,9 +2,7 @@
 
 public class SavingSystem : MonoBehaviour
 {
-    [SerializeField] private GameData _scoreData;
-
-    private string key;
+    [SerializeField] private System.Collections.Generic.List<Data> _listData;
 
     private void Awake()
     {
@@ -13,23 +11,32 @@ public class SavingSystem : MonoBehaviour
 
     private void Load()
     {
-        JsonUtility.FromJsonOverwrite(PlayerPrefs.GetString(key), _scoreData);
+        foreach (var data in _listData)
+        {
+            JsonUtility.FromJsonOverwrite(PlayerPrefs.GetString(data.name), data);
+        }
     }
 
     public void OnSave()
     {
-        if (key == "")
+        foreach (var data in _listData)
         {
-            key = _scoreData.name;
+            string jsonData = JsonUtility.ToJson(data, true);
+
+            PlayerPrefs.SetString(data.name, jsonData);
+            PlayerPrefs.Save();
         }
-
-        string jsonData = JsonUtility.ToJson(_scoreData, true);
-
-        PlayerPrefs.SetString(key, jsonData);
-        PlayerPrefs.Save();
     }
 
     private void OnApplicationPause(bool pause)
+    {
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            OnSave();
+        }
+    }
+
+    private void OnApplicationQuit()
     {
         OnSave();
     }

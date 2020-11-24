@@ -71,6 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2271212324338385730}
   - component: {fileID: 7739531050266077996}
+  - component: {fileID: 1523623785}
   m_Layer: 0
   m_Name: boy
   m_TagString: Untagged
@@ -166,6 +167,76 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0000000027939677, y: 0.003117886, z: -0.002824589}
     m_Extent: {x: 0.013418202, y: 0.015320277, z: 0.00950937}
   m_DirtyAABB: 0
+--- !u!114 &1523623785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470499859450683993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3d8b04e57e03c42800f6d1ff769923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameOvered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: SetGameTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1131128540715898988
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +718,7 @@ GameObject:
   - component: {fileID: 8219089841086828658}
   - component: {fileID: 1198144448}
   - component: {fileID: 1204507300}
+  - component: {fileID: 1835138557}
   m_Layer: 0
   m_Name: Boy
   m_TagString: Untagged
@@ -748,8 +820,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b09f232dc8e8d45870815dd70c2bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterInput: {fileID: 0}
+  _globalAcceleration: {fileID: 0}
   _characterController: {fileID: 6559121674151169792}
-  _speed: 2
+  _forwardSpeed: 2
   _rotationSpeed: 500
 --- !u!114 &1204507300
 MonoBehaviour:
@@ -763,10 +837,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd19503fb9173244905402088bcda54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterInput: {fileID: 0}
   _cellPool: {fileID: 0}
   _characterMovementAnimator: {fileID: 615320201917626158}
   _characterCollider: {fileID: 8219089841086828658}
-  _abilityDelayTime: 10
+  _delayTime: 10
+--- !u!114 &1835138557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5790314585590966343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3513a7d2291f4c468610748226ae0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skinnedMeshRenderer: {fileID: 7739531050266077996}
+  _productsData: {fileID: 11400000, guid: 930514c91c3b8c04189d688db6814922, type: 2}
 --- !u!1 &5950364830595583995
 GameObject:
   m_ObjectHideFlags: 0

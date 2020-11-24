@@ -2,7 +2,7 @@
 
 public class ScoreModel : MonoBehaviour
 {
-    [SerializeField] private GameData _loadSaveData;
+    [SerializeField] private GamePointData _loadSaveData;
     [SerializeField] private float _gamePointsPerSecond;
 
     private float _currentTime;
