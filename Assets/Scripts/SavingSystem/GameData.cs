@@ -12,8 +12,8 @@ public class GameData : ScriptableObject
         get { return _points; }
         set 
         {
-            Debug.Log(value);
             _points = value;
+
             PointsChanged?.Invoke(_points);
         }
     }

@@ -7,7 +7,7 @@ public class UIGamePoints : MonoBehaviour
 
     private void Start()
     {
-        _gameData.Points.ToString("F0");
+        _score.text = _gameData.Points.ToString("F0");
     }
 
     private void OnEnable()

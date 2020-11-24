@@ -2,7 +2,7 @@
 
 public class SavingSystem : MonoBehaviour
 {
-    [SerializeField] private GameData _gameData;
+    [SerializeField] private GameData _scoreData;
 
     private string key;
 
@@ -13,25 +13,20 @@ public class SavingSystem : MonoBehaviour
 
     private void Load()
     {
-        JsonUtility.FromJsonOverwrite(PlayerPrefs.GetString(key), _gameData);
+        JsonUtility.FromJsonOverwrite(PlayerPrefs.GetString(key), _scoreData);
     }
 
     private void Save()
     {
         if (key == "")
         {
-            key = _gameData.name;
+            key = _scoreData.name;
         }
 
-        string jsonData = JsonUtility.ToJson(_gameData, true);
+        string jsonData = JsonUtility.ToJson(_scoreData, true);
 
         PlayerPrefs.SetString(key, jsonData);
         PlayerPrefs.Save();
-    }
-
-    private void OnApplicationPause(bool pause)
-    {
-       // Save();
     }
 
     private void OnApplicationQuit()
