@@ -5,9 +5,16 @@ public class GameData : ScriptableObject
 {
     [SerializeField] private float _points;
 
+    public event System.Action<float> PointsChanged;
+
     public float Points
     {
         get { return _points; }
-        set { _points = value; }
+        set 
+        {
+            Debug.Log(value);
+            _points = value;
+            PointsChanged?.Invoke(_points);
+        }
     }
 }
