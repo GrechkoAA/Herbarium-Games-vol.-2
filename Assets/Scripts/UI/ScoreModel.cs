@@ -2,17 +2,16 @@
 
 public class ScoreModel : MonoBehaviour
 {
-    [SerializeField] private float _point;
+    [SerializeField] private GameData _loadSaveData;
+    [SerializeField] private float _gamePointsPerSecond;
 
     private float _currentTime;
     private float _currentPoints;
     private float _maxSeconds = 1;
 
-    public event System.Action<float> Encouraged;
-
     private void Start()
     {
-        Encouraged?.Invoke(_currentPoints);
+        _currentPoints = _loadSaveData.Points;
     }
 
     private void Update()
@@ -21,10 +20,9 @@ public class ScoreModel : MonoBehaviour
 
         if (_currentTime >= _maxSeconds)
         {
-            _currentPoints += _point;
+            _currentPoints += _gamePointsPerSecond;
 
-            Encouraged?.Invoke(_currentPoints);
-
+            _loadSaveData.Points = _currentPoints;
             _currentTime = 0;
         }
     }
